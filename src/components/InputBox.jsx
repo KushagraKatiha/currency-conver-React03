@@ -23,7 +23,6 @@ function InputBox({
                 <div className='w-full'>
                     <input 
                     className=' w-full border-2 border-solid outline-none border-black rounded-md px-2 py-1 bg-transparent' 
-
                     type="number" 
                     disabled={amountDisable}
                     value={amount} 

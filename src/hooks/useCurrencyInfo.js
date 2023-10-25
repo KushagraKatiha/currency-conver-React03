@@ -1,16 +1,29 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 function useCurrencyInfo(currency){
-    useEffect(()=>{
-        const [data, setData] = useState({})
+    // const [data, setData] = useState({})
 
+    const data = {}
+    // useEffect(()=>{
         fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`)
         .then((res)=>res.json())
-        .then((res)=>console.log(res))
-        console.log(data);
-    }, [currency])
+        .then((res)=>console.log(Object.keys(res)))
+        .then((res)=> {
+            let output = res[currency]
+            return output
+        }
+        )
+        .then(()=>console.log("Second Print:- ",output))
+        .then((res)=>data = Object.keys(res.currency))
+        
+        return data;
+    }
+    // , [currency])
 
-    return data;
-}
 
-module.exports = useCurrencyInfo;
+
+// export default useCurrencyInfo;
+
+
+console.log(useCurrencyInfo("inr"))
+
