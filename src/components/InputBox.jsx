@@ -7,8 +7,8 @@ function InputBox({
     onCurrencyChange,
     currencyOptions = [],
     selectCurrency = "usd",
-    amountDisabled = false,
-    currencyDisabled = false
+    amountDisable = false,
+    currencyDisable = false
 
 }) {
   return (
@@ -22,17 +22,24 @@ function InputBox({
             <div className='w-full flex'>
                 <div className='w-full'>
                     <input 
+                    className=' w-full border-2 border-solid outline-none border-black rounded-md px-2 py-1 bg-transparent' 
+
                     type="number" 
-                    className=' w-full border-none outline-none bg-transparent' 
-                    disabled={amountDisabled}
+                    disabled={amountDisable}
                     value={amount} 
+                    placeholder='0.00'
+                    onChange={(e)=> onAmountChange && onAmountChange(Number(e.target.value))}
+
                     />
                 </div>
                 <div className='w-full text-right'>
-                    <select className="bg-gray-300 font-medium px-2 py-1 rounded-lg outline-none" name="currency">
-                        <option>
-                            USD
-                        </option>
+                    <select 
+                        className="bg-gray-300 font-medium px-2 py-1 rounded-lg outline-none" 
+                        value={selectCurrency}
+                        onChange={(e)=>onCurrencyChange && onCurrencyChange(e.target.value)}
+                        disabled={currencyDisable}
+                    >
+                            {currencyOptions.map((curr)=> (<option key={curr} value={curr}>{curr}</option>))}
                     </select>
                 </div>
             </div>

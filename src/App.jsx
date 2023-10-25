@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <InputBox label="From" />
+      <InputBox label="From" amountDisabled={false}/>
     </>
   )
 }
