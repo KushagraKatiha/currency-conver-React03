@@ -21,7 +21,7 @@ function InputBox({
                 </div>
                 <div className='w-full text-right'>
                     <select 
-                        className="bg-gray-300 font-medium px-2 py-1 rounded-lg outline-none" 
+                        className="bg-gray-100 font-medium px-2 py-1 rounded-lg outline-none" 
                     >
                             {currencyOptions.map((currency)=> (<option key={currency} >{currency}</option>))}
                     </select>
